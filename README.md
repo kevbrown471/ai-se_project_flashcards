@@ -1,8 +1,8 @@
 # Project 1: Triple Peak Library
 
-The Triple Peaks Library webpage is the first project in the
-software engineering
-program at TripleTen. It was created using HTML and CSS, based on a design brief.
+My first project in TripleTen's AI-Assisted Software
+Engineering program. It includes decks of flashcards,
+each of which can be viewed in a carousel.
 
 ## Features
 
@@ -16,3 +16,7 @@ program at TripleTen. It was created using HTML and CSS, based on a design brief
 - HTML
 - CSS
 - Javascript
+
+## Deployed Site
+
+Check out [this site](https://https://kevbrown471.github.io/ai-se_project_flashcards/) on GitHub Pages.
