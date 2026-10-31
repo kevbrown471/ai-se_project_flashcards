@@ -19,4 +19,4 @@ each of which can be viewed in a carousel.
 
 ## Deployed Site
 
-Check out [this site](https://https://kevbrown471.github.io/ai-se_project_flashcards/) on GitHub Pages.
+Check out [this site](https://kevbrown471.github.io/ai-se_project_flashcards/) on GitHub Pages.
