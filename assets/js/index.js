@@ -1,27 +1,29 @@
 import { decks, getDeckByID } from "./decks.js";
 import { hexToString, removeColorClasses } from "./colors.js";
 import { renderCarouselView } from "./carousel.js";
+import { renderDeckView } from "./deck.js";
 
 const main = document.querySelector(".page__main-content");
 const decksView = document.querySelector("#home");
+const deckView = document.querySelector("#deck-view");
 const carouselView = document.querySelector("#carousel-view");
 const notFoundView = document.querySelector("#not-found");
-const deckList = document.querySelector(".decks__list");
-const deckTemplate = document.querySelector("#deck-template");
+const deckList = document.querySelector(".gallery__list");
+const deckTemplate = document.querySelector("#card-template");
 
-function createDeckEl(deck) {
+function createDeckEl(card) {
   const deckElement = deckTemplate.content.firstElementChild.cloneNode(true);
-  const link = deckElement.querySelector(".deck__link");
+  const link = deckElement.querySelector(".card__link");
 
-  link.href = `#carousel/${deck.id}`;
-  link.textContent = deck.name;
-  deckElement.querySelector(".deck__count").textContent =
-    `${deck.cards.length} cards`;
-  removeColorClasses(deckElement, "deck--color-");
-  deckElement.classList.add(`deck--color-${hexToString(deck.color)}`);
+  link.href = `#deck/${card.id}`;
+  link.textContent = card.name;
+  deckElement.querySelector(".card__count").textContent =
+    `${card.cards.length} cards`;
+  removeColorClasses(deckElement, "card--color-");
+  deckElement.classList.add(`card--color-${hexToString(card.color)}`);
 
   deckElement
-    .querySelector(".deck__delete-btn")
+    .querySelector(".card__delete-btn")
     .addEventListener("click", () => {
       deckElement.remove();
     });
@@ -29,8 +31,8 @@ function createDeckEl(deck) {
   return deckElement;
 }
 
-function renderDeck(deck) {
-  const deckEl = createDeckEl(deck);
+function renderDeck(card) {
+  const deckEl = createDeckEl(card);
   deckList.prepend(deckEl);
 }
 
@@ -40,6 +42,7 @@ function renderView() {
   const route = window.location.hash.slice(1);
 
   decksView.hidden = true;
+  deckView.hidden = true;
   carouselView.hidden = true;
   notFoundView.hidden = true;
   main.classList.remove("page__main-content_location_carousel");
@@ -50,6 +53,14 @@ function renderView() {
   }
 
   const [view, deckId] = route.split("/");
+  if (view === "deck" && deckId) {
+    const deck = getDeckByID(deckId);
+    if (deck) {
+      renderDeckView(deck);
+      return;
+    }
+  }
+
   if (view === "carousel" && deckId) {
     const deck = getDeckByID(deckId);
     if (deck) {

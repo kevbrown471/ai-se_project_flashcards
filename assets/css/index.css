@@ -1,3 +1,6 @@
+@import url("../vendor/normalize.css");
+@import url("./page.css");
+
 .page {
   box-sizing: border-box;
   display: flex;
@@ -51,7 +54,7 @@
 
 .header__link:hover,
 .nav__link:hover,
-.deck__link:hover {
+.card__link:hover {
   text-decoration: underline;
 }
 
@@ -78,25 +81,25 @@
   text-decoration: none;
 }
 
-.decks {
+.gallery {
   display: flex;
   flex-direction: column;
 }
 
-.decks__title {
+.gallery__title {
   margin: 0 0 40px;
   font-size: 40px;
   font-weight: 700;
 }
 
-.decks__row,
+.gallery__row,
 .wrapping-row {
   display: flex;
   flex-flow: row wrap;
   gap: 20px;
 }
 
-.decks__list {
+.gallery__list {
   margin: 0;
   padding: 0;
   list-style-type: none;
@@ -106,7 +109,7 @@
   display: contents;
 }
 
-.decks__new-deck-btn {
+.gallery__new-deck-btn {
   display: flex;
   width: 325px;
   height: 205px;
@@ -121,12 +124,12 @@
   line-height: 1.2;
 }
 
-.decks__new-deck-btn:hover {
+.gallery__new-deck-btn:hover {
   background-color: #c5c5c5;
   color: #1a1a1a;
 }
 
-.deck {
+.card {
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
@@ -140,20 +143,26 @@
   position: relative;
 }
 
-.deck__content {
+.card__content {
   display: flex;
   flex-direction: column;
   height: 100%;
 }
 
-.deck__title {
+.card__title {
   color: #1a1a1a;
   font-size: 24px;
   font-weight: 700;
   line-height: 1.2;
+  display: -webkit-box;
+  -webkit-box-orient: vertical;
+  -webkit-line-clamp: 3;
+  line-clamp: 3;
+  overflow: hidden;
+  text-overflow: ellipsis;
 }
 
-.deck__link {
+.card__link {
   color: inherit;
   text-decoration: none;
   position: absolute;
@@ -162,21 +171,21 @@
   padding: 20px;
 }
 
-.deck__row {
+.card__row {
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-top: auto;
 }
 
-.deck__count {
+.card__count {
   color: #1a1a1a;
   font-size: 16px;
   font-weight: 400;
   line-height: 1.2;
 }
 
-.deck__delete-btn {
+.card__delete-btn {
   display: flex;
   width: 24px;
   height: 24px;
@@ -189,12 +198,12 @@
   z-index: 2;
 }
 
-.deck__delete-btn img {
+.card__delete-btn img {
   width: 18px;
   height: 18px;
 }
 
-.deck__delete-btn:hover {
+.card__delete-btn:hover {
   opacity: 1;
 }
 
@@ -210,32 +219,32 @@
   background-color: #64d583;
 }
 
-.deck--color-green,
+.card--color-green,
 .card__carousel_color_green {
   background-color: #64d583;
 }
 
-.deck--color-blue,
+.card--color-blue,
 .card__carousel_color_blue {
   background-color: #91a8f9;
 }
 
-.deck--color-pink,
+.card--color-pink,
 .card__carousel_color_pink {
   background-color: #ee92d7;
 }
 
-.deck--color-purple,
+.card--color-purple,
 .card__carousel_color_purple {
   background-color: #aa8ef0;
 }
 
-.deck--color-orange,
+.card--color-orange,
 .card__carousel_color_orange {
   background-color: #ee955e;
 }
 
-.deck--color-yellow,
+.card--color-yellow,
 .card__carousel_color_yellow {
   background-color: #f5d770;
 }
@@ -342,11 +351,11 @@
     padding: 20px;
   }
 
-  .decks__title {
+  .gallery__title {
     font-size: 32px;
   }
 
-  .decks__new-deck-btn {
+  .gallery__new-deck-btn {
     width: 100%;
     max-width: 325px;
   }

@@ -18,7 +18,7 @@
     <!-- 1. Normalize CSS (Establishes a consistent baseline) -->
     <link rel="stylesheet" href="./assets/vendor/normalize.css" />
     <!-- 2. Custom Stylesheet (Overrides defaults with your own styles) -->
-    <link rel="stylesheet" href="./assets/css/style.css" />
+    <link rel="stylesheet" href="./assets/css/index.css" />
     <link rel="icon" href="./favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -41,20 +41,20 @@
       </nav>
     </header>
     <main class="page__main-content">
-      <section id="home" class="decks">
-        <h2 class="decks__title">My Decks</h2>
-        <div class="decks__row">
-          <ul class="decks__list wrapping-row__display-contents">
-            <template id="deck-template">
-              <li class="deck deck--color-green">
-                <div class="deck__content">
-                  <h2 class="deck__title">
-                    <a class="deck__link"></a>
+      <section id="home" class="gallery">
+        <h2 class="gallery__title">My Decks</h2>
+        <div class="gallery__row">
+          <ul class="gallery__list wrapping-row__display-contents">
+            <template id="card-template">
+              <li class="card card--color-green">
+                <div class="card__content">
+                  <h2 class="card__title">
+                    <a class="card__link"></a>
                   </h2>
-                  <div class="deck__row">
-                    <span class="deck__count"></span>
+                  <div class="card__row">
+                    <span class="card__count"></span>
                     <button
-                      class="deck__delete-btn"
+                      class="card__delete-btn"
                       aria-label="Delete this deck"
                       type="button"
                     >
@@ -65,9 +65,37 @@
               </li>
             </template>
           </ul>
-          <button class="decks__new-deck-btn" type="button">+ New Deck</button>
+          <button class="gallery__new-deck-btn" type="button">+ New Deck</button>
         </div>
       </section>
+
+      <section id="deck-view" class="gallery" hidden>
+        <h2 class="gallery__title"></h2>
+        <div class="gallery__row">
+          <ul class="gallery__list wrapping-row__display-contents">
+            <template id="flashcard-template">
+              <li class="card card--color-green">
+                <div class="card__content">
+                  <h2 class="card__title"></h2>
+                  <div class="card__row">
+                    <button class="card__flip-btn" aria-label="Flip this card" type="button"></button>
+                    <button
+                      class="card__delete-btn"
+                      aria-label="Delete this card"
+                      type="button"
+                    >
+                      <img src="./assets/images/delete.svg" alt="trash can" />
+                    </button>
+                  </div>
+                </div>
+              </li>
+            </template>
+          </ul>
+          <button class="gallery__new-deck-btn" type="button">+ New Card</button>
+          <a class="gallery__practice-link" href="#">Practice</a>
+        </div>
+      </section>
+      
       <section id="carousel-view" class="carousel" hidden>
         <h2 class="carousel__title"></h2>
         <div class="carousel__row">
