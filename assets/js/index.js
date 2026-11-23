@@ -23,7 +23,7 @@ function createDeckEl(card) {
   deckElement.classList.add(`card--color-${hexToString(card.color)}`);
 
   deckElement
-    .querySelector(".card__delete-btn")
+    .querySelector(".card__btn_type_delete")
     .addEventListener("click", () => {
       deckElement.remove();
     });
@@ -40,15 +40,12 @@ decks.forEach(renderDeck);
 
 function renderView() {
   const route = window.location.hash.slice(1);
+  console.log("route:", route);
 
-  decksView.hidden = true;
-  deckView.hidden = true;
-  carouselView.hidden = true;
-  notFoundView.hidden = true;
   main.classList.remove("page__main-content_location_carousel");
 
   if (!route || route === "home") {
-    decksView.hidden = false;
+    showView(decksView, "flex");
     return;
   }
 
@@ -70,8 +67,18 @@ function renderView() {
     }
   }
 
-  notFoundView.hidden = false;
+  showView(notFoundView, "block");
 }
 
 window.addEventListener("hashchange", renderView);
 renderView();
+
+
+export function showView(currentSection, display) {
+  const sections = [decksView, deckView, carouselView, notFoundView];
+
+  sections.forEach((section) => {
+    section.style.display = "none";
+  });
+  currentSection.style.display = display;
+}

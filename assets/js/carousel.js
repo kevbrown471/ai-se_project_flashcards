@@ -1,4 +1,5 @@
 import { hexToString, removeColorClasses } from "./colors.js";
+import { showView } from "./index.js";
 
 export function renderCarouselView(deck) {
   const carousel = document.querySelector("#carousel-view");
@@ -58,5 +59,5 @@ export function renderCarouselView(deck) {
   };
 
   updateDisplay();
-  carousel.hidden = false;
+  showView(carousel, "flex");
 }

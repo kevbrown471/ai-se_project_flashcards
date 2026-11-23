@@ -1,22 +1,27 @@
 # Project 1: Triple Peak Library
 
-My first project in TripleTen's AI-Assisted Software
-Engineering program. It includes decks of flashcards,
-each of which can be viewed in a carousel.
+My first project in TripleTen's AI-Assisted Software Engineering program. Triple Peak Library is a flashcard app where users can browse decks and study their cards in a carousel.
 
 ## Features
 
+### Flashcard experience
+
+- **Open Deck View:** Open a specific deck in a focused, full-page view and navigate its cards one at a time using the carousel.
+- **Confirmation Modal:** Confirm or cancel important actions, such as deleting a deck or card, to help prevent accidental changes.
+- **Responsive Design:** Browse decks and study flashcards on desktop, tablet, and mobile screens.
+
+### Layout and styling
+
 - Semantic HTML5
 - Flexbox
-- Positioning
-- Vertical Stacking with z-index
+- CSS positioning and `z-index`
 
-## Technologies used
+## Technologies
 
 - HTML
 - CSS
-- Javascript
+- JavaScript
 
 ## Deployed Site
 
-Check out [this site](https://kevbrown471.github.io/ai-se_project_flashcards/) on GitHub Pages.
+[View Triple Peak Library on GitHub Pages](https://kevbrown471.github.io/ai-se_project_flashcards/)

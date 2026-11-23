@@ -1,4 +1,5 @@
 import { hexToString, removeColorClasses } from "./colors.js";
+import { showView } from "./index.js";
 
 const deckView = document.querySelector("#deck-view");
 const cardList = deckView.querySelector(".gallery__list");
@@ -24,7 +25,7 @@ export function createCardEl(card, deckColor) {
   });
 
   cardElement
-    .querySelector(".card__delete-btn")
+    .querySelector(".card__btn_type_delete")
     .addEventListener("click", () => {
       cardElement.remove();
     });
@@ -39,11 +40,13 @@ export function renderCard(card, deckColor) {
 }
 
 export function renderDeckView(deck) {
-  const practiceLink = document.querySelector(".gallery__practice-link");
-  practiceLink.href = `#carousel/${deck.id}`;
+  const practiceBtn = document.querySelector(".gallery__practice-btn");
+  practiceBtn.addEventListener("click", () => {
+  window.location.hash = `#carousel/${deck.id}`;
+});
   const title = deckView.querySelector(".gallery__title");
   title.textContent = deck.name;
   cardList.replaceChildren();
   deck.cards.forEach((card) => renderCard(card, deck.color));
-  deckView.hidden = false;
+  showView(deckView, "flex");
 }
