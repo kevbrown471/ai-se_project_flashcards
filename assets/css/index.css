@@ -520,3 +520,26 @@
     width: min(353px, 100%);
   }
 }
+
+@media (min-width: 806px) {
+  #deck-view {
+    container-name: deck-view;
+    container-type: inline-size;
+  }
+
+  #deck-view .gallery__header {
+    max-width: 670px;
+  }
+
+  @container deck-view (min-width: 1015px) {
+    #deck-view .gallery__header {
+      max-width: 1015px;
+    }
+  }
+
+  @container deck-view (min-width: 1360px) {
+    #deck-view .gallery__header {
+      max-width: 100%;
+    }
+  }
+}
