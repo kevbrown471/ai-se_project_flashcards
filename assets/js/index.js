@@ -1,7 +1,7 @@
 import { decks, getDeckByID } from "./decks.js";
 import { hexToString, removeColorClasses } from "./colors.js";
-import { renderCarouselView } from "./carousel.js?v=deck-header-align";
-import { renderDeckView } from "./deck.js?v=deck-header-align";
+import { renderCarouselView } from "./carousel.js?v=deck-header-resize";
+import { renderDeckView } from "./deck.js?v=deck-header-resize";
 import { generateModal } from "./modal.js";
 
 export const openModal = generateModal({

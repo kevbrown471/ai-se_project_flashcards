@@ -1,5 +1,5 @@
 import { hexToString, removeColorClasses } from "./colors.js";
-import { openModal, showView } from "./index.js?v=deck-header-align";
+import { openModal, showView } from "./index.js?v=deck-header-resize";
 
 const deckView = document.querySelector("#deck-view");
 const cardList = deckView.querySelector(".gallery__list");
