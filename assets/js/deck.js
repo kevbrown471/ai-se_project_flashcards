@@ -32,7 +32,7 @@ export function createCardEl(card, deckColor) {
     
     }));
 
-  updateDisplay
+  updateDisplay()
   return cardElement;
 }
 
