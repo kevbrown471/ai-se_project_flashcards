@@ -20,6 +20,7 @@ const deckList = document.querySelector(".gallery__list");
 const deckTemplate = document.querySelector("#card-template");
 const deckCardList = deckView.querySelector(".gallery__list");
 const deckHeader = deckView.querySelector(".gallery__header");
+const deckCardRow = deckView.querySelector(".gallery__row");
 const newCardButton = deckView.querySelector(
   ".gallery__new-card-btn_location_deck-view",
 );
@@ -50,6 +51,7 @@ function scheduleDeckHeaderAlignment() {
 }
 
 window.addEventListener("resize", scheduleDeckHeaderAlignment);
+new ResizeObserver(scheduleDeckHeaderAlignment).observe(deckCardRow);
 new MutationObserver(scheduleDeckHeaderAlignment).observe(deckCardList, {
   childList: true,
 });
