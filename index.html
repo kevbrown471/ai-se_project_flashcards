@@ -21,6 +21,7 @@
     <link rel="stylesheet" href="./assets/vendor/normalize.css" />
     <link rel="stylesheet" href="./assets/css/page.css" />
     <link rel="stylesheet" href="./assets/css/mobile-bar.css" />
+    <link rel="stylesheet" href="./assets/css/modal.css" />
     <link rel="icon" href="./favicon.ico" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
@@ -110,6 +111,16 @@
           </button>
         </div>
       </section>
+
+      <div id="confirmation-modal" class="modal">
+           <div class="modal__container">
+             <p class="modal__text">Are you sure you want to delete this image?</p>
+            <div class="modal__buttons">
+            <button type="button" class="modal__btn modal__btn_type_cancel">Cancel</button>
+            <button type="button" class="modal__btn modal__btn_type_confirm">Delete</button>
+           </div>
+          </div>
+        </div>
 
       <section id="carousel-view" class="carousel" hidden>
         <h2 class="carousel__title"></h2>

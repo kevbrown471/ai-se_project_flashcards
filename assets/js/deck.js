@@ -1,5 +1,6 @@
 import { hexToString, removeColorClasses } from "./colors.js";
 import { showView } from "./index.js";
+import { openModal } from "./index.js";
 
 const deckView = document.querySelector("#deck-view");
 const cardList = deckView.querySelector(".gallery__list");
@@ -26,11 +27,12 @@ export function createCardEl(card, deckColor) {
 
   cardElement
     .querySelector(".card__btn_type_delete")
-    .addEventListener("click", () => {
+    .addEventListener("click", () => openModal(function () {
       cardElement.remove();
-    });
+    
+    }));
 
-  updateDisplay();
+  updateDisplay
   return cardElement;
 }
 

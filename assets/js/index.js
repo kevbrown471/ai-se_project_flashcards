@@ -2,6 +2,14 @@ import { decks, getDeckByID } from "./decks.js";
 import { hexToString, removeColorClasses } from "./colors.js";
 import { renderCarouselView } from "./carousel.js";
 import { renderDeckView } from "./deck.js";
+import { generateModal } from "./modal.js";
+
+export const openModal = generateModal({
+  modalEl: document.querySelector("#confirmation-modal"),
+  cancelBtnEl: document.querySelector(".modal__btn_type_cancel"),
+  confirmBtnEl: document.querySelector(".modal__btn_type_confirm"),
+  visibleClass: "modal_visible",
+});
 
 const main = document.querySelector(".page__main-content");
 const decksView = document.querySelector("#home");
@@ -24,9 +32,10 @@ function createDeckEl(card) {
 
   deckElement
     .querySelector(".card__btn_type_delete")
-    .addEventListener("click", () => {
+    .addEventListener("click", () => openModal(function () {
       deckElement.remove();
-    });
+    
+    }));
 
   return deckElement;
 }
@@ -40,7 +49,6 @@ decks.forEach(renderDeck);
 
 function renderView() {
   const route = window.location.hash.slice(1);
-  console.log("route:", route);
 
   main.classList.remove("page__main-content_location_carousel");
 
