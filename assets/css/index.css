@@ -447,9 +447,11 @@
   }
 
   .carousel__grid {
-    align-self: stretch;
+    align-self: center;
     width: 100%;
+    max-width: 353px;
     margin-top: 20px;
+    grid-template-columns: 44px minmax(0, 1fr) 44px;
     grid-template-areas:
       "card card card"
       "left flip right";
