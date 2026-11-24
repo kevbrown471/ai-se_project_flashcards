@@ -136,3 +136,20 @@
 }
 
 }
+
+@media (min-width: 394px) {
+  .header {
+    box-sizing: border-box;
+    width: 100%;
+    max-width: 1360px;
+    height: 24px;
+    margin: 0 auto;
+    padding: 0;
+  }
+}
+
+@media (min-width: 394px) and (max-width: 805px) {
+  .header {
+    width: calc(100% - 40px);
+  }
+}
