@@ -25,8 +25,11 @@ function createDeckEl(card) {
 
   link.href = `#deck/${card.id}`;
   link.textContent = card.name;
-  deckElement.querySelector(".card__count").textContent =
-    `${card.cards.length} cards`;
+
+  const countEl = deckElement.querySelector(".card__count");
+  const count = card.cards.length;
+  countEl.textContent = `${count} ${count === 1 ? "card" : "cards"}`;
+
   removeColorClasses(deckElement, "card--color-");
   deckElement.classList.add(`card--color-${hexToString(card.color)}`);
 

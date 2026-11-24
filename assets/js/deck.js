@@ -6,6 +6,7 @@ const deckView = document.querySelector("#deck-view");
 const cardList = deckView.querySelector(".gallery__list");
 const cardTemplate = deckView.querySelector("#flashcard-template");
 
+
 export function createCardEl(card, deckColor) {
   const cardElement = cardTemplate.content.firstElementChild.cloneNode(true);
   const title = cardElement.querySelector(".card__title");
