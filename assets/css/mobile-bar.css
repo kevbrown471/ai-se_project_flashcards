@@ -138,18 +138,47 @@
 }
 
 @media (min-width: 394px) {
+  .page {
+    container-name: page-layout;
+    container-type: inline-size;
+  }
+
   .header {
     box-sizing: border-box;
     width: 100%;
-    max-width: 1360px;
+    max-width: 325px;
     height: 24px;
-    margin: 0 auto;
+    margin: 0;
     padding: 0;
   }
 }
 
 @media (min-width: 394px) and (max-width: 805px) {
   .header {
-    width: calc(100% - 40px);
+    align-self: center;
+  }
+}
+
+@media (min-width: 394px) and (max-width: 395px) {
+  .header {
+    max-width: 353px;
+  }
+}
+
+@container page-layout (min-width: 670px) {
+  .header {
+    max-width: 670px;
+  }
+}
+
+@container page-layout (min-width: 1015px) {
+  .header {
+    max-width: 1015px;
+  }
+}
+
+@container page-layout (min-width: 1360px) {
+  .header {
+    max-width: 1360px;
   }
 }
