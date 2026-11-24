@@ -521,11 +521,6 @@
   }
 }
 
-#deck-view {
-  container-name: deck-view;
-  container-type: inline-size;
-}
-
 #deck-view .gallery__header {
   width: 100%;
   max-width: 325px;
@@ -543,19 +538,25 @@
   }
 }
 
-@container deck-view (min-width: 670px) {
+@media (min-width: 729px) and (max-width: 805px) {
   #deck-view .gallery__header {
     max-width: 670px;
   }
 }
 
-@container deck-view (min-width: 1015px) {
+@media (min-width: 806px) and (max-width: 1113px) {
+  #deck-view .gallery__header {
+    max-width: 670px;
+  }
+}
+
+@media (min-width: 1114px) and (max-width: 1458px) {
   #deck-view .gallery__header {
     max-width: 1015px;
   }
 }
 
-@container deck-view (min-width: 1360px) {
+@media (min-width: 1459px) {
   #deck-view .gallery__header {
     max-width: 100%;
   }
