@@ -1,5 +1,6 @@
 import { hexToString, removeColorClasses } from "./colors.js";
-import { openModal, showView } from "./index.js?v=deck-header-resize";
+import { showView } from "./index.js?v=carousel-header-reset";
+import { openModal } from "./index.js?v=carousel-header-reset";
 
 const deckView = document.querySelector("#deck-view");
 const cardList = deckView.querySelector(".gallery__list");
@@ -18,6 +19,7 @@ export function createCardEl(card, deckColor) {
   const updateDisplay = () => {
     title.textContent = isFlipped ? card.answer : card.question;
     title.title = title.textContent;
+    cardElement.classList.toggle("deck__card_color_white", isFlipped);
   };
 
   flipButton.addEventListener("click", () => {

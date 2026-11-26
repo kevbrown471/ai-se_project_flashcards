@@ -1,7 +1,7 @@
 import { decks, getDeckByID } from "./decks.js";
 import { hexToString, removeColorClasses } from "./colors.js";
-import { renderCarouselView } from "./carousel.js?v=deck-header-resize";
-import { renderDeckView } from "./deck.js?v=deck-header-resize";
+import { renderCarouselView } from "./carousel.js?v=carousel-header-reset";
+import { renderDeckView } from "./deck.js?v=carousel-header-reset";
 import { generateModal } from "./modal.js";
 
 export const openModal = generateModal({
@@ -18,43 +18,6 @@ const carouselView = document.querySelector("#carousel-view");
 const notFoundView = document.querySelector("#not-found");
 const deckList = document.querySelector(".gallery__list");
 const deckTemplate = document.querySelector("#card-template");
-const deckCardList = deckView.querySelector(".gallery__list");
-const deckHeader = deckView.querySelector(".gallery__header");
-const deckCardRow = deckView.querySelector(".gallery__row");
-const newCardButton = deckView.querySelector(
-  ".gallery__new-card-btn_location_deck-view",
-);
-
-function alignDeckHeader() {
-  if (getComputedStyle(deckView).display === "none") {
-    return;
-  }
-
-  const cards = [...deckCardList.querySelectorAll(".card")];
-  const firstCardTop = cards[0]?.getBoundingClientRect().top;
-  const firstRowCards = cards.filter(
-    (card) => Math.abs(card.getBoundingClientRect().top - firstCardTop) < 1,
-  );
-  const items = firstRowCards.length ? firstRowCards : [newCardButton];
-  const itemRects = items.map((item) => item.getBoundingClientRect());
-  const rowLeft = Math.min(...itemRects.map((rect) => rect.left));
-  const rowRight = Math.max(...itemRects.map((rect) => rect.right));
-  const deckLeft = deckView.getBoundingClientRect().left;
-
-  deckHeader.style.alignSelf = "flex-start";
-  deckHeader.style.width = `${rowRight - rowLeft}px`;
-  deckHeader.style.marginLeft = `${rowLeft - deckLeft}px`;
-}
-
-function scheduleDeckHeaderAlignment() {
-  window.requestAnimationFrame(alignDeckHeader);
-}
-
-window.addEventListener("resize", scheduleDeckHeaderAlignment);
-new ResizeObserver(scheduleDeckHeaderAlignment).observe(deckCardRow);
-new MutationObserver(scheduleDeckHeaderAlignment).observe(deckCardList, {
-  childList: true,
-});
 
 function createDeckEl(card) {
   const deckElement = deckTemplate.content.firstElementChild.cloneNode(true);
@@ -102,7 +65,6 @@ function renderView() {
     const deck = getDeckByID(deckId);
     if (deck) {
       renderDeckView(deck);
-      scheduleDeckHeaderAlignment();
       return;
     }
   }

@@ -1,5 +1,5 @@
 import { hexToString, removeColorClasses } from "./colors.js";
-import { showView } from "./index.js?v=deck-header-resize";
+import { showView } from "./index.js?v=carousel-header-reset";
 
 export function renderCarouselView(deck) {
   const carousel = document.querySelector("#carousel-view");

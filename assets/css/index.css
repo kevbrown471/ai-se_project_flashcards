@@ -75,6 +75,7 @@
   flex-flow: row wrap;
   gap: 20px;
   position: relative;
+  margin-bottom: 120px;
 }
 
 .gallery__list {
@@ -301,6 +302,10 @@
   background-color: #fff;
 }
 
+.deck__card_color_white {
+  background-color: #fff;
+}
+
 .carousel__card-text {
   margin: 0;
   font-size: 26px;
@@ -418,6 +423,7 @@
   font-size: 18px;
 }
 
+
 @media (max-width: 640px) {
   .page {
     padding: 20px;
@@ -447,11 +453,7 @@
   }
 
   .carousel__grid {
-    align-self: center;
-    width: 100%;
-    max-width: 353px;
     margin-top: 20px;
-    grid-template-columns: 44px minmax(0, 1fr) 44px;
     grid-template-areas:
       "card card card"
       "left flip right";
@@ -468,7 +470,7 @@
   }
 }
 
-@media (max-width: 395px) {
+@media (max-width: 393px) {
   .card {
     box-sizing: border-box;
     display: flex;
@@ -482,8 +484,13 @@
     aspect-ratio: 353 / 205;
   }
 
-  .gallery__row {
-    padding-bottom: 120px;
+   .header {
+    box-sizing: border-box;
+    width: 100%;
+    aspect-ratio: 393/64;
+    justify-content: space-between;
+    opacity: 1;
+    padding: 20px;
   }
 
   .footer {
@@ -503,6 +510,10 @@
   .carousel__card-text {
     font-size: 32px;
   }
+  
+ .header {
+    padding-bottom: 20px;
+ }
 
   .carousel__card_color_white .carousel__card-text {
     font-family: Inter, sans-serif;
@@ -512,11 +523,5 @@
     line-height: 140%;
     letter-spacing: 0;
     text-align: center;
-  }
-}
-
-@media (max-width: 640px) {
-  .carousel__card {
-    width: min(353px, 100%);
   }
 }
